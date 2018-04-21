@@ -1,11 +1,14 @@
 package com.karthick.jpaonetomany.security;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+@Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Value("${spring.security.user.name}")
@@ -24,11 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/mystore/manage/**").hasRole(role).anyRequest().authenticated();
-  }
-  
-  @Override
-  public void configure(WebSecurity web) throws Exception {
-    web.ignoring().antMatchers("/mystore/**");
+    http.authorizeRequests().antMatchers("/mystore/**").permitAll();
+    http.authorizeRequests().antMatchers("/manage/**").hasRole(role).and().httpBasic();
   }
 }
