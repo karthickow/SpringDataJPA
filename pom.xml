@@ -92,7 +92,7 @@
 			        <dateFormatTimeZone>${user.timezone}</dateFormatTimeZone>
 			        <verbose>false</verbose>
 			        <generateGitPropertiesFile>true</generateGitPropertiesFile>
-			        <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+			        <generateGitPropertiesFilename>${project.build.outputDirectory}/git.json</generateGitPropertiesFilename>
 			        <format>json</format>
 			        <failOnUnableToExtractRepoInfo>true</failOnUnableToExtractRepoInfo>
 			        <commitIdGenerationMode>flat</commitIdGenerationMode>
