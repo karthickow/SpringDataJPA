@@ -86,7 +86,7 @@
                     </execution>
 			    </executions>
 			    <configuration>
-			        <dotGitDirectory>../${project.basedir}/.git</dotGitDirectory>
+			        <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
 			        <prefix>git</prefix>
 			        <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
 			        <dateFormatTimeZone>${user.timezone}</dateFormatTimeZone>
